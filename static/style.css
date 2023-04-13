@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+* {
+    font-family: "poppins";
+  
+}
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #e9e5e5;
+
+}
+.navi {
+    background-color: #242a45;
+    display: flex;
+    justify-content: space-between;
+    height:200px;
+}
+.options {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin-top: 30px;
+}
+.options >* > a {
+    color:#999;
+    padding: 25px;
+    text-decoration: none;
+}
+ li>a:hover {
+    color: white;
+ }
+.logo > img {
+     width: 250px;
+     margin: 10px 6px;
+}
+.active {
+    display: block;
+
+}
+figure {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+}
+figure > button {
+
+    background-color: rgb(105, 105, 210);
+    width: 80px;
+    height: 80px;
+    border: 2px solid blueviolet;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.services {
+    position: relative;
+    top: -50px;
+}
+.services-cap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+}
+.cap {
+    width:80px;
+    position: relative;
+    top: -50px;
+    text-align: center;
+}
+/* input section from here */
+
+.grp {
+ 
+    display: none;
+}
+#input0,#input1,#input2,#input3,#input4,#input5 {
+    border-radius: 15px;
+    box-shadow: 0px 0px 6px #444;
+    width: 33vw;
+    height: 40px;
+    border: none;
+    margin: 0px;
+    z-index: 3;
+    padding: 10px;
+}
+#submit {
+    position: absolute;
+    width: 33vw;
+    margin-top: 165px;
+
+}
+.active {
+    display: block;
+
+}
+#first-btn {
+   position: absolute;
+   left: 40vw;
+   right: 40vw;
+    
+}
+.contain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+   
+}
+.list {
+    position: relative;
+    padding-left: 10px;
+    list-style-type: none;
+    overflow-y: auto;
+    width: 33vw;
+    height: 100px;
+   z-index: 200;
+   background: transparent;
+  border-bottom: 2px solid #444;
+
+}
+.list::-webkit-scrollbar {
+    display: none;
+  }
+.list >* {
+    margin: 10px;
+}
+
+.btns > button {
+    margin-top: 30px;
+    width: 16.5vw;
+}
+.contain2 {
+    transform: translateY(-50px);
+}

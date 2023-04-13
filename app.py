@@ -26,7 +26,7 @@ l1=['itching','skin_rash','nodal_skin_eruptions','continuous_sneezing','shiverin
 disease=['Fungal infection','Allergy','GERD','Chronic cholestasis','Drug Reaction',
         'Peptic ulcer diseae','AIDS','Diabetes','Gastroenteritis','Bronchial Asthma','Hypertension',
         ' Migraine','Cervical spondylosis',
-        'Paralysis (brain hemorrhage)','Jaundice','Malaria','Chicken pox','Dengue','Typhoid','hepatitis A',
+        'Paralysis (brain hemorrhage)','Jaundice','Malaria','Chicken pox','Dengue','Typhoid','Hepatitis A',
 'Hepatitis B','Hepatitis C','Hepatitis D','Hepatitis E','Alcoholic hepatitis','Tuberculosis',
 'Common Cold','Pneumonia','Dimorphic hemmorhoids(piles)',
 'Heartattack','Varicoseveins','Hypothyroidism','Hyperthyroidism','Hypoglycemia','Osteoarthristis',
@@ -36,6 +36,7 @@ disease=['Fungal infection','Allergy','GERD','Chronic cholestasis','Drug Reactio
 idol_symptoms = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 description_list={}
 precution_list={}
+treatment_list={}
 def desc():
     with open('MasterData/symptom_Description.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
@@ -49,8 +50,15 @@ def prec():
         for row in csv_reader:
             _prec={row[0]:[row[1],row[2],row[3],row[4]]}
             precution_list.update(_prec)
+def treat():
+    with open('MasterData/treatment.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        for row in csv_reader:
+            _treat={row[0]:[row[1],row[2],row[3]]}
+            treatment_list.update(_treat)
 desc()
 prec()
+treat()
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -67,6 +75,7 @@ def predict():
         symptom_list =[]
         for i in user_symptoms:
             symptom_list.append(i.strip())
+        print(symptom_list)
         predict_list = idol_symptoms
         for i in range(0, len(idol_symptoms)):
             for k in symptom_list:
@@ -76,8 +85,14 @@ def predict():
         disease_name =disease[model.predict(f)[0]]
         description = description_list[disease_name]
         precution = precution_list[disease_name]
-        # print(precution_list[disease_name])
-    return render_template("index.html", disease=disease_name , description=description, precution = precution)
-
+        treatment = treatment_list[disease_name]
+        ayur = treatment[0]
+        homeopathic = treatment[1]
+        conventional = treatment[2]
+        # print(treatment_list)
+    return render_template("index.html", disease=disease_name , description=description, precution = precution, ayur=ayur, homeopathic=homeopathic, conventional= conventional)
+@app.route('/pie')
+def pie():
+    return render_template("pichart.html" , work=2)
 if __name__ == "__main__":
     app.run(debug=True)
