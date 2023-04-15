@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -18,7 +18,7 @@
 
         var options = {
           title: 'My Daily Activities',
-          is3D: false,
+          is3D: true,
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
@@ -30,4 +30,81 @@
     <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
     <h1>{{work}}</h1>
   </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Diabetes Dashboard</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawCharts);
+      
+      function drawCharts() {
+        // pie chart of patient genders
+        var genderData = google.visualization.arrayToDataTable([
+          ['Gender', 'Number of Patients'],
+          ['Male', 40],
+          ['Female', 60]
+        ]);
+        var genderChartOptions = {
+          title: 'Patient Gender Distribution',
+          pieHole: 0.4
+        };
+        var genderChart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        genderChart.draw(genderData, genderChartOptions);
+        
+        // bar chart of patient ages
+        var ageData = google.visualization.arrayToDataTable([
+          ['Age Group', 'Number of Patients'],
+          ['0-10', 5],
+          ['11-20', 10],
+          ['21-30', 20],
+          ['31-40', 25],
+          ['41-50', 30],
+          ['51-60', 40],
+          ['61-70', 50],
+          ['71-80', 60],
+          ['81-90', 70],
+          ['91-100', 80]
+        ]);
+        var ageChartOptions = {
+          title: 'Patient Age Distribution',
+          hAxis: {title: 'Age Group'},
+          vAxis: {title: 'Number of Patients'}
+        };
+        var ageChart = new google.visualization.BarChart(document.getElementById('chart_div_2'));
+        ageChart.draw(ageData, ageChartOptions);
+        
+        // line chart of patient blood sugar levels
+        var bloodSugarData = google.visualization.arrayToDataTable([
+          ['Date', 'Blood Sugar Level (mg/dL)'],
+          ['Jan 1', 130],
+          ['Jan 7', 120],
+          ['Jan 14', 110],
+          ['Jan 21', 105],
+          ['Jan 28', 100],
+          ['Feb 4', 95],
+          ['Feb 11', 90],
+          ['Feb 18', 85],
+          ['Feb 25', 80],
+          ['Mar 4', 75]
+        ]);
+        var bloodSugarChartOptions = {
+          title: 'Patient Blood Sugar Levels',
+          hAxis: {title: 'Date'},
+          vAxis: {title: 'Blood Sugar Level (mg/dL)'}
+        };
+        var bloodSugarChart = new google.visualization.LineChart(document.getElementById('chart_div_3'));
+        bloodSugarChart.draw(bloodSugarData, bloodSugarChartOptions);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div"></div>
+    <div id="chart_div_2"></div>
+    <div id="chart_div_3"></div>
+  </body>
 </html>
+

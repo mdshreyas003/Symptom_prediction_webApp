@@ -25,7 +25,7 @@ l1=['itching','skin_rash','nodal_skin_eruptions','continuous_sneezing','shiverin
 
 disease=['Fungal infection','Allergy','GERD','Chronic cholestasis','Drug Reaction',
         'Peptic ulcer diseae','AIDS','Diabetes','Gastroenteritis','Bronchial Asthma','Hypertension',
-        ' Migraine','Cervical spondylosis',
+        'Migraine','Cervical spondylosis',
         'Paralysis (brain hemorrhage)','Jaundice','Malaria','Chicken pox','Dengue','Typhoid','Hepatitis A',
 'Hepatitis B','Hepatitis C','Hepatitis D','Hepatitis E','Alcoholic hepatitis','Tuberculosis',
 'Common Cold','Pneumonia','Dimorphic hemmorhoids(piles)',
@@ -91,7 +91,7 @@ def predict():
         conventional = treatment[2]
         # print(treatment_list)
     return render_template("index.html", disease=disease_name , description=description, precution = precution, ayur=ayur, homeopathic=homeopathic, conventional= conventional)
-@app.route('/pie')
+@app.route('/pie' , methods=['GET', 'POST'])
 def pie():
     return render_template("pichart.html" , work=2)
 if __name__ == "__main__":

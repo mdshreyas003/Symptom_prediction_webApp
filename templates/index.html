@@ -236,7 +236,7 @@ function levenshtein(a, b) {
         <li><a href="#2">Contact</a></li>
       </ul>
     </nav>
-    <div class="services">
+    <!-- <div class="services">
       <figure>
         <button>
           <img style="scale: 0.6" src="{{url_for('static' ,filename='chat.png')}}" alt="chatDR" />
@@ -248,8 +248,11 @@ function levenshtein(a, b) {
           <img style="scale: 0.9" src="{{url_for('static' ,filename='finddr.png')}}" alt="chatDR" />
         </button>
       </figure>
-    </div>
-    <div class="services-cap">
+    </div> -->
+    <form action="/pie" method="post">
+      <input type="submit" value="Analysis of Sugar Patients">
+    </form>
+    <!-- <div class="services-cap">
       <p class="cap" id="sym">
         symptom<br />
         checker
@@ -262,10 +265,10 @@ function levenshtein(a, b) {
         chat a<br />
         doctor
       </p>
-    </div>
+    </div> -->
     <h1 style="text-align: center">Predict Disease</h1>
-    <div class="contain">
-      <form action="/predict" method="post" autocomplete="off">
+    <div class="contain" id="userip">
+      <form id="form" action="/predict" method="post"  autocomplete="off" onsubmit="hideform()">
         <label for="input" class="m-3 d-flex justify-content-center"
           >enter symptom</label
         >
@@ -321,25 +324,28 @@ function levenshtein(a, b) {
             id="input5"
             type="text"
             name="symptom6"
-          /><br /><input
-            id="submit" onclick="next()"
-            class="btn btn-primary btn-md"
-            type="submit"
-          />
+          /><br />
         </div>
-      </form>
+        <input
+            id="submit" onclick="next()"
+            class="btn btn-primary btn-md disabled"
+            type="submit"
+            value="Predict Now>>>"
+          />
+      
       <ul class="list"></ul>
+    </form>
       <div class="contain2 d-flex justify-content-center">
         <div class="btns m-4 hstack btn-group">
           <button class="btn btn-dark" onclick="prev()">prev</button>
           <button class="btn btn-dark" onclick="next()" id="next">next</button>
         </div>
       </div>
+    
     </div>
 
     <div
-      class="result d-flex justify-content-center flex-column align-items-center m-5"
-    >
+      class="result d-flex justify-content-center flex-column align-items-center m-5">
       {% if disease %}
       <p>Predicted disease: {{ disease }}</p>
       <p>Description: {{description}}</p>
@@ -376,15 +382,23 @@ function levenshtein(a, b) {
       {% endif %}
     </div>
     <script>
+      let userip = document.getElementById('userip');
+      function hideform() {
+        userip.classList.add('d-none')
+      }
+
       let active = document.getElementsByClassName("active");
       console.log(active);
       let inputs = document.querySelectorAll(".grp");
       let ans = document.querySelectorAll(".inp");
-      let submit = document.getElementById("input5")
+      let submit = document.getElementById("submit")
      
       let count = 0;
       const next = () => {
         console.log(ans[count].value.length);
+          submit.classList.remove("active");
+          submit.classList.add("disabled");
+
         if (ans[count].value.length != 0) {
           if (count <= 4) {
             inputs[count].classList.remove("active");
@@ -397,6 +411,11 @@ function levenshtein(a, b) {
             inputs[count].classList.add("active");
           }
         }
+      
+      if(count >=2){
+        submit.classList.add("active");
+          submit.classList.remove("disabled");
+      }
       };
       const prev = () => {
         if (count >= 1) {
@@ -583,6 +602,7 @@ function levenshtein(a, b) {
         }
       }
     </script>
+    
   </body>
 </html>
 
