@@ -1,0 +1,428 @@
+exercises = [
+ {
+    "body_type": "Triangle or Pear-shaped",
+    "weight_range": "45-63 kg",
+    "height_range": "4'10\"-5'5\"",
+    "age_range": "14-21 years",
+    "exercise_name": "Lunges",
+    "exercise_recommendation": "Lunges are a great exercise for the lower body, targeting the glutes, quads, and hamstrings. To perform a lunge, step forward with one foot and lower your hips until both knees are bent at a 90-degree angle, then push back up and repeat with the other leg. Aim for 3-4 sets of 10-15 reps per leg, with 30-60 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+{
+    "body_type": "Triangle or Pear-shaped",
+    "weight_range": "45-64 kg",
+    "height_range": "4'10\"-5'5\"",
+    "age_range": "14-21",
+    "exercise_name": "Lunges",
+    "exercise_recommendation": "Lunges are a great exercise for the lower body, targeting the glutes, quads, and hamstrings. To perform a lunge, step forward with one foot and lower your hips until both knees are bent at a 90-degree angle, then push back up and repeat with the other leg. Aim for 3-4 sets of 10-15 reps per leg, with 30-60 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+  {
+    "body_type": "Triangle or Pear-shaped",
+    "weight_range": "45-113 kg",
+    "height_range": "4'10\"-6'2\"",
+    "age_range": "14-21",
+    "exercise_name": "Deadlifts",
+    "exercise_recommendation": "Deadlifts are a great exercise for building strength in the lower body, including the glutes, hamstrings, and lower back. Aim for 3-4 sets of 8-10 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+ {
+    "body_type": "Triangle or Pear-shaped",
+    "weight_range": "63-82 kg",
+    "height_range": "5'0\"-5'5\"",
+    "age_range": "14-21 years",
+    "exercise_name": "Squats",
+    "exercise_recommendation": "Squats are a great exercise for the lower body, targeting the glutes, quads, and hamstrings. To perform a squat, stand with your feet shoulder-width apart and lower your hips until your thighs are parallel to the ground, then push back up. Aim for 3-4 sets of 10-15 reps, with 30-60 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+{
+	"body_type": "Triangle or Pear-shaped",
+	"weight_range": "63-82 kg",
+	"height_range": "5'0"-5'5"",
+	"age_range": "14-21 years",
+	"exercise_name": "Lunges",
+	"exercise_recommendation": "Lunges are another great exercise for the lower body, targeting the quads, hamstrings, and glutes. To perform a lunge, step forward with one leg and lower your body until both knees are bent at a 90-degree angle, then push back up and repeat with the other leg. Aim for 3-4 sets of 10-15 reps per leg, with 30-60 seconds rest between sets. Do this exercise 2-3 times per week."
+}
+{
+	"body_type": "Triangle or Pear-shaped",
+	"weight_range": "63-82 kg",
+	"height_range": "5'0"-5'5"",
+	"age_range": "14-21 years",
+	"exercise_name": "Hip thrusts",
+	"exercise_recommendation": "Hip thrusts are a great exercise for targeting the glutes. To perform a hip thrust, sit on the ground with your back against a bench and a weight across your lap, then thrust your hips up towards the ceiling, squeezing your glutes at the top of the movement. Aim for 3-4 sets of 10-15 reps, with 30-60 seconds rest between sets. Do this exercise 2-3 times per week."
+}
+
+ {
+    "body_type": "Triangle or Pear-shaped",
+    "weight_range": "45-113 kg",
+    "height_range": "5'5\"-6'0\"",
+    "age_range": "14-21 years",
+    "exercise_name": "Deadlifts",
+    "exercise_recommendation": "Deadlifts are a great exercise for building strength in the lower body, including the glutes, hamstrings, and lower back. Aim for 3-4 sets of 8-10 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+ {
+    "body_type": "Triangle or Pear-shaped",
+    "weight_range": "45-113 kg",
+    "height_range": "5'5\"-6'0\"",
+    "age_range": "14-21 years",
+    "exercise_name": "Hip thrusts",
+    "exercise_recommendation": "Hip thrusts are an effective exercise for targeting the glutes and hamstrings. Aim for 3-4 sets of 12-15 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+
+{
+    "body_type": "Triangle or Pear-shaped",
+    "weight_range": "63-82 kg",
+    "height_range": "5'5-6'0",
+    "age_range": "14-21 years",
+    "exercise_name": "Deadlifts",
+    "exercise_recommendation": "Deadlifts are a compound exercise that works multiple muscle groups, including the glutes, hamstrings, lower back, and core. Aim for 3-4 sets of 6-8 reps, with 2-3 minutes rest between sets. Do this exercise 1-2 times per week."
+  },
+{
+	"body_type": "Rectangle",
+      "exercise_name": "Deadlifts",
+      "exercise_recommendation": "Deadlifts are a great exercise for developing the posterior chain, including the lower back, glutes, and hamstrings. To perform a deadlift, stand with your feet shoulder-width apart and grasp the bar with an overhand grip. Keeping your back straight, lift the bar by extending your hips and knees, then lower it back to the ground. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week.",
+      "weight_range": "50-75 kg",
+      "height_range": "4'10\"-5'5\"",
+      "age_range": "14-21 years, 21-45 years"
+    },
+ {
+    "body_type": "Rectangle",
+    "weight_range": "45-60 kg",
+    "height_range": "4'10\"-5'5\"",
+    "age_range": "14-21 years",
+    "exercise_name": "Deadlifts",
+    "exercise_recommendation": "Deadlifts are a compound exercise that work your entire body, but primarily target your glutes, hamstrings, and lower back. To perform a deadlift, stand with your feet shoulder-width apart, hinge forward at your hips, grab a barbell with an overhand grip, and lift the weight up using your legs and hips. Aim for 3-4 sets of 6-8 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+  {
+    "body_type": "Rectangle",
+    "weight_range": "60-75 kg",
+    "height_range": "4'10\"-5'5\"",
+    "age_range": "14-21 years",
+    "exercise_name": "Bench Press",
+    "exercise_recommendation": "The bench press is a great exercise for developing your chest, shoulders, and triceps. To perform a bench press, lie flat on a bench with your feet firmly on the ground, grab the barbell with an overhand grip, and lower the weight to your chest, then push the weight back up. Aim for 3-4 sets of 8-10 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+    {
+	"body_type": "Rectangle",
+      "exercise_name": "Planks",
+      "exercise_recommendation": "Planks are a great exercise for developing core stability and strength. To perform a plank, start in a push-up position, then lower yourself onto your forearms. Keep your body in a straight line from head to heels, and hold the position for as long as possible. Aim for 3-4 sets of 30-60 second holds, with 30-60 seconds rest between sets. Do this exercise 2-3 times per week.",
+      "weight_range": "50-75 kg",
+      "height_range": "5'5\"-6'0\"",
+      "age_range": "14-21 years, 21-45 years"
+    },
+{
+    "body_type": "Rectangle",
+    "weight_range": "72-91 kg",
+    "height_range": "5'5\"-6'0\"",
+    "age_range": "21-45 years",
+    "exercise_name": "Deadlifts",
+    "exercise_recommendation": "Deadlifts are a compound exercise that target multiple muscles in the body, including the back, glutes, and legs. To perform a deadlift, stand with your feet shoulder-width apart, bend down to grasp the bar with an overhand grip, then stand up while lifting the bar. Aim for 3-4 sets of 6-8 reps, with 60-90 seconds rest between sets. Do this exercise 1-2 times per week."
+},
+{
+    "body_type": "Rectangle",
+    "weight_range": "59-77 kg",
+    "height_range": "6'0\" and above",
+    "age_range": "14-21 years",
+    "exercise_name": "Pull-Ups",
+    "exercise_recommendation": "Pull-ups are a great exercise for the upper body, targeting the back, shoulders, and arms. To perform a pull-up, grasp the bar with an overhand grip, then pull your body up until your chin is above the bar. Lower yourself down to the starting position and repeat. Aim for 3-4 sets of 8-10 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+},
+    {
+	"body_type": "Rectangle",
+      "exercise_name": "Bent-over Rows",
+      "exercise_recommendation": "Bent-over rows are a great exercise for developing the upper back, including the lats and traps. To perform a bent-over row, stand with your feet shoulder-width apart and grasp the bar with an overhand grip. Bend forward at the hips while keeping your back straight, then pull the bar towards your chest. Lower the bar back to the ground and repeat. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week.",
+      "weight_range": "50-75 kg",
+      "height_range": "6'0\" and above",
+      "age_range": "45-75 years"
+    },
+{
+    "body_type": "Rectangle",
+    "exercise_name": "Deadlifts",
+    "exercise_recommendation": "Deadlifts are a compound exercise that work multiple muscle groups, including the back, legs, and core. To perform a deadlift, stand with your feet shoulder-width apart and grip the bar with an overhand grip. Bend your knees and lower your hips, keeping your back straight. Then, drive through your heels and lift the bar up to hip level. Lower the bar back to the ground and repeat. Aim for 3-4 sets of 6-8 reps, with 90-120 seconds rest between sets. Do this exercise 1-2 times per week.",
+    "weight_range": "50-75 kg",
+    "height_range": "6'0\" and above",
+    "age_range": "45-75 years"
+}
+
+  {
+    "body_type": "Rhomboid",
+    "weight_range": "45-64 kg",
+    "height_range": "4'10\"-5'5\"",
+    "age_range": "14-21 years",
+    "exercise_name": "Inverted Rows",
+    "exercise_recommendation": "Inverted Rows are a great exercise for building upper back and shoulder strength. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+  {
+    "body_type": "Rhomboid",
+    "weight_range": "45-64 kg",
+    "height_range": "4'10\"-5'5\"",
+    "age_range": "21-45 years",
+    "exercise_name": "Lat Pulldowns",
+    "exercise_recommendation": "Lat Pulldowns are an excellent exercise for strengthening the upper back and biceps. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+  {
+    "body_type": "Rhomboid",
+    "weight_range": "45-64 kg",
+    "height_range": "4'10\"-5'5\"",
+    "age_range": "45-75 years",
+    "exercise_name": "Seated Row",
+    "exercise_recommendation": "Seated Row is a great exercise for strengthening the back and improving posture. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+  {
+    "body_type": "Rhomboid",
+    "weight_range": "55-77 kg",
+    "height_range": "5'5\"-6'0\"",
+    "age_range": "14-21 years",
+    "exercise_name": "Wide Grip Pull-Ups",
+    "exercise_recommendation": "Wide Grip Pull-Ups are an excellent exercise for strengthening the back and biceps. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+  {
+    "body_type": "Rhomboid",
+    "weight_range": "55-77 kg",
+    "height_range": "5'5\"-6'0\"",
+    "age_range": "21-45 years",
+    "exercise_name": "Barbell Rows",
+    "exercise_recommendation": "Barbell Rows are a compound exercise that work the upper and lower back, as well as the biceps and forearms. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+  {
+    "body_type": "Rhomboid",
+    "weight_range": "55-77 kg",
+    "height_range": "5'5\"-6'0\"",
+    "age_range": "45-75 years",
+    "exercise_name": "Standing T Rows",
+    "exercise_recommendation": "Standing T Rows are a great exercise for strengthening the back and shoulders. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+{
+	"body_type": "Rhomboid",
+	"weight_range": "140-180 lbs",
+	"height_range": "6'0\" and above",
+	"age_range": "14-21 years",
+	"exercise_name": "Deadlifts",
+	"exercise_recommendation": "Deadlifts are a great exercise for building lower back, glutes, and leg strength. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+},
+{
+	"body_type": "Rhomboid",
+	"weight_range": "180-220 lbs",
+	"height_range": "6'0\" and above",
+	"age_range": "21-45 years",
+	"exercise_name": "Barbell Rows",
+	"exercise_recommendation": "Barbell Rows are a great exercise for building upper back and shoulder strength. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+},
+{
+	"body_type": "Rhomboid",
+	"weight_range": "220-260 lbs",
+	"height_range": "6'0\" and above",
+	"age_range": "45-75 years",
+	"exercise_name": "Seated Rows",
+	"exercise_recommendation": "Seated Rows are a great exercise for building upper back and shoulder strength. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+}{
+  "body_type": "Oval or round-shaped",
+  "weight_range": "45-64 kg",
+  "height_range": "4'10\"-5'5\"",
+  "age_range": "14-21 years",
+  "exercise_name": "Inverted Rows",
+  "exercise_recommendation": "Inverted Rows are a great exercise for building upper back and shoulder strength. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+},
+{
+  "body_type": "Oval or round-shaped",
+  "weight_range": "45-64 kg",
+  "height_range": "4'10\"-5'5\"",
+  "age_range": "21-45 years",
+  "exercise_name": "Walking",
+  "exercise_recommendation": "Walking is a low-impact exercise that can help improve cardiovascular health and burn calories. Aim for at least 30 minutes of brisk walking, 5 times per week."
+},
+{
+  "body_type": "Oval or round-shaped",
+  "weight_range": "45-64 kg",
+  "height_range": "4'10\"-5'5\"",
+  "age_range": "45-75 years",
+  "exercise_name": "Swimming",
+  "exercise_recommendation": "Swimming is a low-impact exercise that can help improve cardiovascular health and build muscle strength. Aim for at least 30 minutes of swimming, 3 times per week."
+},
+{
+  "body_type": "Oval or round-shaped",
+  "weight_range": "64-82 kg",
+  "height_range": "5'5\"-6'0\"",
+  "age_range": "14-21 years",
+  "exercise_name": "Squats",
+  "exercise_recommendation": "Squats are a great exercise for building leg strength and overall fitness. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+},
+{
+  "body_type": "Oval or round-shaped",
+  "weight_range": "64-82 kg",
+  "height_range": "5'5\"-6'0\"",
+  "age_range": "21-45 years",
+  "exercise_name": "Cycling",
+  "exercise_recommendation": "Cycling is a low-impact exercise that can help improve cardiovascular health and burn calories. Aim for at least 30 minutes of cycling, 3-5 times per week."
+},
+{
+  "body_type": "Oval or round-shaped",
+  "weight_range": "64-82 kg",
+  "height_range": "5'5\"-6'0\"",
+  "age_range": "45-75 years",
+  "exercise_name": "Yoga",
+  "exercise_recommendation": "Yoga is a low-impact exercise that can help improve flexibility, balance, and reduce stress. Aim for at least 30 minutes of yoga, 3 times per week."
+},
+{
+"body_type": "Oval or round-shaped",
+"weight_range": "85-120 kg",
+"height_range": "6'0"+",
+"age_range": "21-45 years",
+"exercise_name": "Deadlifts",
+"exercise_recommendation": "Deadlifts are an excellent exercise for developing overall strength, particularly in the legs, back, and core. Use proper form and technique, and start with lighter weights before progressing to heavier loads. Aim for 3-4 sets of 4-8 reps, with 2-3 minutes rest between sets. Do this exercise 1-2 times per week."
+},
+{
+"body_type": "Oval or round-shaped",
+"weight_range": "85-120 kg",
+"height_range": "6'0"+",
+"age_range": "21-45 years",
+"exercise_name": "Bench Press",
+"exercise_recommendation": "Bench press is a great exercise for building upper body strength, particularly in the chest, triceps, and shoulders. Use proper form and technique, and start with lighter weights before progressing to heavier loads. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 1-2 times per week."
+},
+{
+"body_type": "Oval or round-shaped",
+"weight_range": "85-120 kg",
+"height_range": "6'0"+",
+"age_range": "21-45 years",
+"exercise_name": "Standing Military Press",
+"exercise_recommendation": "The standing military press is an excellent exercise for building upper body strength, particularly in the shoulders and triceps. Use proper form and technique, and start with lighter weights before progressing to heavier loads. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 1-2 times per week."
+},
+{
+    "body_type": "Inverted Triangle",
+    "weight_range": "45-59 kg",
+    "height_range": "4'10\"-5'5\"",
+    "age_range": "14-21 years",
+    "exercise_name": "Jumping Jacks",
+    "exercise_recommendation": "Jumping jacks are a great full-body exercise that can be done anywhere, anytime. Aim for at least 3 sets of 30-60 seconds, with 30-60 seconds rest between sets. Do this exercise 3-5 times per week."
+  },
+  {
+    "body_type": "Inverted Triangle",
+    "weight_range": "45-59 kg",
+    "height_range": "4'10\"-5'5\"",
+    "age_range": "21-45 years",
+    "exercise_name": "Push-Ups",
+    "exercise_recommendation": "Push-ups are a great exercise for building upper body strength, including the chest, shoulders, and triceps. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+  {
+    "body_type": "Inverted Triangle",
+    "weight_range": "45-59 kg",
+    "height_range": "4'10\"-5'5\"",
+    "age_range": "45-75 years",
+    "exercise_name": "Plank",
+    "exercise_recommendation": "The plank is a great exercise for building core strength and stability. Aim for 3-4 sets of 30-60 seconds, with 30-60 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+ {
+    "body_type": "Inverted Triangle",
+    "weight_range": "59-73 kg",
+    "height_range": "5'5\"-6'0\"",
+    "age_range": "14-21 years",
+    "exercise_name": "Burpees",
+    "exercise_recommendation": "Burpees are a great full-body exercise that can help build strength and endurance. Aim for at least 3 sets of 10-15 reps, with 30-60 seconds rest between sets. Do this exercise 3-5 times per week."
+  },
+  {
+    "body_type": "Inverted Triangle",
+    "weight_range": "59-73 kg",
+    "height_range": "5'5\"-6'0\"",
+    "age_range": "21-45 years",
+    "exercise_name": "Pull-Ups",
+    "exercise_recommendation": "Pull-ups are a great exercise for building upper body strength, including the back, shoulders, and biceps. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+  },
+{
+  "body_type": "Inverted Triangle",
+  "weight_range": "68-82 kg",
+  "height_range": "5'5\"-6'0\"",
+  "age_range": "21-45 years",
+  "exercise_name": "Deadlifts",
+  "exercise_recommendation": "Deadlifts are a great compound exercise for building overall strength and targeting the lower back, glutes, and hamstrings. Use proper form and start with a weight that you can comfortably lift for 8-10 reps. Aim for 3-4 sets with 60-90 seconds rest between sets. Do this exercise 1-2 times per week."
+}
+  {
+  "body_type": "Inverted Triangle",
+  "weight_range": "73-91 kg",
+  "height_range": "6'0\"+",
+  "age_range": "21-45 years",
+  "exercise_name": "Barbell Bench Press",
+  "exercise_recommendation": "The barbell bench press is a classic exercise that targets the chest, shoulders, and triceps. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+},
+{
+  "body_type": "Inverted Triangle",
+  "weight_range": "73-91 kg",
+  "height_range": "6'0\"+",
+  "age_range": "14-21 years",
+  "exercise_name": "Deadlifts",
+  "exercise_recommendation": "Deadlifts are a great exercise for building overall body strength, with emphasis on the back, glutes, and hamstrings. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+},
+{
+  "body_type": "Inverted Triangle",
+  "weight_range": "73-91 kg",
+  "height_range": "6'0\"+",
+  "age_range": "45-75 years",
+  "exercise_name": "Seated Cable Rows",
+  "exercise_recommendation": "Seated cable rows are a great exercise for building back and shoulder strength. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+},
+{
+  "body_type": "Hourglass",
+  "weight_range": "45-59 kg",
+  "height_range": "4'10\"-5'5\"",
+  "age_range": "14-21 years",
+  "exercise_name": "Jumping Jacks",
+  "exercise_recommendation": "Jumping jacks are a great way to get your heart rate up and improve cardiovascular health. Aim for 3-4 sets of 20-30 reps, with 30-60 seconds rest between sets. Do this exercise 3-5 times per week."
+},
+{
+  "body_type": "Hourglass",
+  "weight_range": "50-68 kg",
+  "height_range": "4'10\"-5'5\"",
+  "age_range": "21-45 years",
+  "exercise_name": "Squats",
+  "exercise_recommendation": "Squats are a great exercise for building lower body strength and improving mobility. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+},
+{
+  "body_type": "Hourglass",
+  "weight_range": "55-73 kg",
+  "height_range": "4'10\"-5'5\"",
+  "age_range": "45-75 years",
+  "exercise_name": "Walking",
+  "exercise_recommendation": "Walking is a great low-impact exercise that can improve cardiovascular health and joint mobility. Aim for at least 30 minutes of walking, 3-5 times per week."
+},
+{
+  "body_type": "Hourglass",
+  "weight_range": "59-77 kg",
+  "height_range": "5'5\"-6'0\"",
+  "age_range": "14-21 years",
+  "exercise_name": "Lunges",
+  "exercise_recommendation": "Lunges are a great exercise for building lower body strength and improving balance. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+},
+{
+  "body_type": "Hourglass",
+  "weight_range": "64-82 kg",
+  "height_range": "5'5\"-6'0\"",
+  "age_range": "21-45 years",
+  "exercise_name": "Deadlifts",
+  "exercise_recommendation": "Deadlifts are a great exercise for building total body strength and improving posture. Aim for 3-4 sets of 6-8 reps, with 90-120 seconds rest between sets. Do this exercise 1-2 times per week."
+},
+{
+  "body_type": "Hourglass",
+  "weight_range": "68-91 kg",
+  "height_range": "5'5\"-6'0\"",
+  "age_range": "45-75 years",
+  "exercise_name": "Swimming",
+  "exercise_recommendation": "Swimming is a great low-impact exercise that can improve cardiovascular health and muscle strength. Aim for at least 30 minutes of swimming, 3-5 times per week."
+},
+{
+"body_type": "Hourglass",
+"weight_range": "73-91 kg",
+"height_range": "6'0"+",
+"age_range": "21-45 years",
+"exercise_name": "Deadlifts",
+"exercise_recommendation": "Deadlifts are a great exercise for building overall strength, particularly in the lower body and core. Aim for 3-4 sets of 6-8 reps, with 2-3 minutes rest between sets. Do this exercise once or twice per week."
+},
+{
+"body_type": "Hourglass",
+"weight_range": "64-82 kg",
+"height_range": "6'0"+",
+"age_range": "21-45 years",
+"exercise_name": "Bent Over Rows",
+"exercise_recommendation": "Bent over rows are a great exercise for building back and shoulder strength. Aim for 3-4 sets of 8-12 reps, with 60-90 seconds rest between sets. Do this exercise 2-3 times per week."
+},
+{
+"body_type": "Hourglass",
+"weight_range": "64-82 kg",
+"height_range": "6'0"+",
+"age_range": "21-45 years",
+"exercise_name": "Standing Military Press",
+"exercise_recommendation": "Standing military press is a great exercise for building overall shoulder strength and definition. Aim for 3-4 sets of 6-8 reps, with 2-3 minutes rest between sets. Do this exercise once or twice per week."
+}
+]

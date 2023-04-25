@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Talk to a Therapist</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{url_for('static',filename='talk_doctor.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <style>
+	.navigation {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		height: 60px;
+		padding: 5px 25px;
+		border-bottom: 2px solid #999;
+	
+	}
+	.logo {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: row;
+		gap: 10px;
+		
+	}
+	.logo > img {
+		width: 40px;
+	
+	}
+	.nav_links {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.links {
+		display: flex;
+		gap: 35px;
+		list-style-type: none;
+		align-items: baseline;
+		margin: 0;
+	}
+	#login {
+		background-color: black;
+		color: white;
+	}
+		</style>
+	  </head>
+	
+	  <body>
+		<div class="navigation">
+		  <div class="logo">
+			<img src="{{url_for('static',filename='cell.png')}}" alt="logo" />
+			<h3 style="margin: 0; font-weight: 400;">Medi<span style="color: blue;font-weight: 700;">Care</span></h3>
+		  </div>
+		  <div class="nav_links">
+			<ul class="links">
+			  <li><a href="/home">Home</a></li>
+			  <li><a href="/exercises">Exersises</a></li>
+			  <li><a href="/chat">Talk with therapist</a></li>
+			  <li><a href="/find-doctor">Find the doctor</a></li>
+			  <li><button class="btn btn" id="login">
+				  {% if session['username'] != None %}
+				  {{session['username']}}
+				  {% else %}
+				  <a href="/login">Login</a>
+				  {% endif %}
+			  </button></li>
+			</ul>
+		  </div>
+		</div>
+	<header>
+		<h1>Talk to a Therapist</h1>
+	</header>
+
+	<section id="intro">
+		<p>Welcome to Talk to a Therapist, a platform where you can connect with licensed therapists and get the support you need for your mental health.</p>
+		<p>Our team of experienced and compassionate therapists are here to help you with a range of issues, including anxiety, depression, stress, relationship problems, and more.</p>
+		<p>It's normal to feel overwhelmed or uncertain about seeking therapy, but taking care of your mental health is important. We're here to support you every step of the way.</p>
+	</section>
+
+	<section id="services">
+		<h2>Our Services</h2>
+		<p>We offer a range of services to help you improve your mental health:</p>
+		<ul>
+			<li>One-on-one therapy sessions with a licensed therapist</li>
+			<li>Group therapy sessions with peers who are dealing with similar issues</li>
+			<li>Online therapy sessions via video or chat</li>
+			<li>Self-help resources, including articles, videos, and guided meditations</li>
+		</ul>
+	</section>
+
+	<section id="importance">
+		<h2>The Importance of Mental Health</h2>
+		<p>Did you know that mental health is just as important as physical health?</p>
+		<p>Our mental health affects our thoughts, feelings, and behaviors, and can impact our relationships, work, and overall quality of life. That's why it's important to take care of our mental health, just like we take care of our physical health.</p>
+		<p>Seeking therapy can help you improve your mental health, build resilience, and develop coping skills to deal with life's challenges. It's a brave step, but one that can lead to positive changes in your life.</p>
+	</section>
+
+	<section id="contact">
+		<h2>Get in Touch</h2>
+		<p>Ready to take the first step towards better mental health? Contact us to schedule an appointment or learn more about our services:</p>
+		<ul>
+      <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i>
+        Talk to Doctor on WhatsApp
+      </a>
+      
+			<li>Call us at: 7083465918</li>
+			<li>Email us at: info@talktoatherapist.com</li>
+			<li>Connect with us on WhatsApp: <a href="https://wa.me/1XXXXXXXXXX">+1 XXX-XXX-XXXX</a></li>
+		</ul>
+	</section>
+
+	<footer>
+		<p>&copy; 2023 Talk to a Therapist</p>
+	</footer>
+
+</body>
+</html>
+[0:43 pm, 23/04/2023] Srujan: <!DOCTYPE html>
+<html>
+<head>
+	<title>Talk to a Therapist</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{url_for('static',filename='talk_doctor.css')}}bg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+</head>
+<body>
+	<header>
+		<h1>Talk to a Therapist</h1>
+	</header>
+
+	<section id="intro">
+		<p>Welcome to Talk to a Therapist, a platform where you can connect with licensed therapists and get the support you need for your mental health.</p>
+		<p>Our team of experienced and compassionate therapists are here to help you with a range of issues, including anxiety, depression, stress, relationship problems, and more.</p>
+		<p>It's normal to feel overwhelmed or uncertain about seeking therapy, but taking care of your mental health is important. We're here to support you every step of the way.</p>
+	</section>
+
+	<section id="services">
+		<h2>Our Services</h2>
+		<p>We offer a range of services to help you improve your mental health:</p>
+		<ul>
+			<li>One-on-one therapy sessions with a licensed therapist</li>
+			<li>Group therapy sessions with peers who are dealing with similar issues</li>
+			<li>Online therapy sessions via video or chat</li>
+			<li>Self-help resources, including articles, videos, and guided meditations</li>
+		</ul>
+	</section>
+
+	<section id="importance">
+		<h2>The Importance of Mental Health</h2>
+		<p>Did you know that mental health is just as important as physical health?</p>
+		<p>Our mental health affects our thoughts, feelings, and behaviors, and can impact our relationships, work, and overall quality of life. That's why it's important to take care of our mental health, just like we take care of our physical health.</p>
+		<p>Seeking therapy can help you improve your mental health, build resilience, and develop coping skills to deal with life's challenges. It's a brave step, but one that can lead to positive changes in your life.</p>
+	</section>
+
+	<section id="contact">
+		<h2>Get in Touch</h2>
+		<p>Ready to take the first step towards better mental health? Contact us to schedule an appointment or learn more about our services:</p>
+		<ul>
+      <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i>
+        Talk to Doctor on WhatsApp
+      </a>
+      
+			<li>Call us at: 7083465918</li>
+			<li>Email us at: info@talktoatherapist.com</li>
+			<li>Connect with us on WhatsApp: <a href="https://wa.me/1XXXXXXXXXX">+1 XXX-XXX-XXXX</a></li>
+		</ul>
+	</section>
+
+	<footer>
+		<p>&copy; 2023 Talk to a Therapist</p>
+	</footer>
+
+</body>
+</html>

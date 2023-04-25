@@ -1,0 +1,616 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hello</title>
+</head>
+<body>
+    <input type="text" id="symptoms-input">
+    <div id="symptoms-suggestions"></div>
+</body>
+<script>
+symptoms = ['cough', 'fever', 'headache', 'nausea', 'fatigue', 'vomiting', 'diarrhea', 'chest pain', 'shortness of breath', 'abdominal pain', 'joint pain']
+document.getElementById("symptoms-input").addEventListener('input', autocomplete)
+function autocomplete(event) {
+  var input = event.target.value.toLowerCase();
+  var matches = [];
+  for (var i = 0; i < symptoms.length; i++) {
+    var symptom = symptoms[i].toLowerCase();
+    var distance = levenshtein(input, symptom);
+    if (distance <= 3) { // suggest if distance <= 2
+      matches.push(symptoms[i]);
+    }
+  }
+  var suggestions = document.getElementById("symptoms-suggestions");
+  suggestions.innerHTML = "";
+  for (var i = 0; i < matches.length; i++) {
+    var suggestion = document.createElement("div");
+    suggestion.innerHTML = matches[i];
+    suggestion.onclick = function() {
+      event.target.value = this.innerHTML;
+      suggestions.innerHTML = "";
+    };
+    suggestions.appendChild(suggestion);
+  }
+}
+
+function levenshtein(a, b) {
+  if (a.length == 0) return b.length;
+  if (b.length == 0) return a.length;
+  var matrix = [];
+  for (var i = 0; i <= b.length; i++) {
+    matrix[i] = [i];
+  }
+  for (var j = 0; j <= a.length; j++) {
+    matrix[0][j] = j;
+  }
+  for (var i = 1; i <= b.length; i++) {
+    for (var j = 1; j <= a.length; j++) {
+      if (b.charAt(i - 1) == a.charAt(j - 1)) {
+        matrix[i][j] = matrix[i - 1][j - 1];
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1,
+          Math.min(
+            matrix[i][j - 1] + 1,
+            matrix[i - 1][j] + 1
+          )
+        );
+      }
+    }
+  }
+  return matrix[b.length][a.length];
+}
+
+</script>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Predict Disease</title>
+</head>
+<body>
+    <h1>Predict Disease</h1>
+    <form method="POST" action="/predict" autocomplete="off" >
+        <label for="symptoms">Symptoms:</label><br>
+        <input type="text" class = "symptom" id="symptom1" name="symptom1"><br>
+        <input type="text" class = "symptom" id="symptom2" name="symptom2"><br>
+        <input type="text" class = "symptom" id="symptom3" name="symptom3"><br>
+        <input type="text" class = "symptom" id="symptom4" name="symptom4"><br>
+        <input type="text" class = "symptom" id="symptom5" name="symptom5"><br>
+        <input type="text" class = "symptom" id="symptom6" name="symptom6"><br>
+        <input type="submit" value="Submit">
+        <div id="symptoms-suggestions"></div>
+    </form>
+    {% if disease %}
+        <p>Predicted disease: {{ disease }}</p>
+        <p>Description: {{description}}</p>
+        <br>
+        <h4>Precution:</h4>
+        <ol>
+          {% for i in precution %}
+          <li>
+            {{i}}
+          </li> 
+          {% endfor %}
+        </ol>
+        <h4>
+          Treatment:
+          </h4>
+          <div>
+            <h5>
+              Ayurvadic: 
+            </h5>
+            <p>
+              {{ayur}}
+            </p>
+            <h5>
+              Homeopathic: 
+            </h5>
+            <p>
+              {{homeopathic}}
+            </p>
+            <h5>
+              Conventional: 
+            </h5>
+            <p>
+              {{conventional}}
+            </p>
+          </div>
+          
+          
+        
+    {% endif %}
+
+<script>
+  symptoms = ['itching','skin_rash','nodal_skin_eruptions','continuous_sneezing','shivering','chills','joint_pain',
+    'stomach_pain','acidity','ulcers_on_tongue','muscle_wasting','vomiting','burning_micturition','spotting_ urination','fatigue',
+    'weight_gain','anxiety','cold_hands_and_feets','mood_swings','weight_loss','restlessness','lethargy','patches_in_throat',
+    'irregular_sugar_level','cough','high_fever','sunken_eyes','breathlessness','sweating','dehydration','indigestion',
+    'headache','yellowish_skin','dark_urine','nausea','loss_of_appetite','pain_behind_the_eyes','back_pain','constipation',
+    'abdominal_pain','diarrhoea','mild_fever','yellow_urine','yellowing_of_eyes','acute_liver_failure','fluid_overload',
+    'swelling_of_stomach','swelled_lymph_nodes','malaise','blurred_and_distorted_vision','phlegm','throat_irritation',
+    'redness_of_eyes','sinus_pressure','runny_nose','congestion','chest_pain','weakness_in_limbs','fast_heart_rate',
+    'pain_during_bowel_movements','pain_in_anal_region','bloody_stool','irritation_in_anus','neck_pain','dizziness','cramps',
+    'bruising','obesity','swollen_legs','swollen_blood_vessels','puffy_face_and_eyes','enlarged_thyroid','brittle_nails',
+    'swollen_extremeties','excessive_hunger','extra_marital_contacts','drying_and_tingling_lips','slurred_speech','knee_pain','hip_joint_pain',
+    'muscle_weakness','stiff_neck','swelling_joints','movement_stiffness','spinning_movements','loss_of_balance','unsteadiness','weakness_of_one_body_side',
+    'loss_of_smell','bladder_discomfort','foul_smell_of urine','continuous_feel_of_urine','passage_of_gases','internal_itching','toxic_look_(typhos)',
+    'depression','irritability','muscle_pain','altered_sensorium','red_spots_over_body','belly_pain','abnormal_menstruation','dischromic _patches',
+    'watering_from_eyes','increased_appetite','polyuria','family_history','mucoid_sputum','rusty_sputum','lack_of_concentration','visual_disturbances',
+    'receiving_blood_transfusion','receiving_unsterile_injections','coma','stomach_bleeding','distention_of_abdomen','history_of_alcohol_consumption',
+    'fluid_overload','blood_in_sputum','prominent_veins_on_calf','palpitations','painful_walking','pus_filled_pimples','blackheads','scurring','skin_peeling',
+    'silver_like_dusting','small_dents_in_nails','inflammatory_nails','blister','red_sore_around_nose','yellow_crust_ooze']
+
+document.getElementById("symptom1").addEventListener('input', autocomplete)
+document.getElementById("symptom2").addEventListener('input', autocomplete)
+document.getElementById("symptom3").addEventListener('input', autocomplete)
+document.getElementById("symptom4").addEventListener('input', autocomplete)
+document.getElementById("symptom5").addEventListener('input', autocomplete)
+document.getElementById("symptom6").addEventListener('input', autocomplete)
+function autocomplete(event) {
+  var input = event.target.value.toLowerCase();
+  var matches = [];
+  for (var i = 0; i < symptoms.length; i++) {
+    var symptom = symptoms[i].toLowerCase();
+    var distance = levenshtein(input, symptom);
+    if (distance <= 2) { // suggest if distance <= 2
+      matches.push(symptoms[i]);
+    }
+  }
+  var suggestions = document.getElementById("symptoms-suggestions");
+  suggestions.innerHTML = "";
+  for (var i = 0; i < matches.length; i++) {
+    var suggestion = document.createElement("div");
+    suggestion.innerHTML = matches[i];
+    suggestion.onclick = function() {
+      event.target.value = this.innerHTML;
+      suggestions.innerHTML = "";
+    };
+    suggestions.appendChild(suggestion);
+  }
+}
+
+function levenshtein(a, b) {
+  if (a.length == 0) return b.length;
+  if (b.length == 0) return a.length;
+  var matrix = [];
+  for (var i = 0; i <= b.length; i++) {
+    matrix[i] = [i];
+  }
+  for (var j = 0; j <= a.length; j++) {
+    matrix[0][j] = j;
+  }
+  for (var i = 1; i <= b.length; i++) {
+    for (var j = 1; j <= a.length; j++) {
+      if (b.charAt(i - 1) == a.charAt(j - 1)) {
+        matrix[i][j] = matrix[i - 1][j - 1];
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1,
+          Math.min(
+            matrix[i][j - 1] + 1,
+            matrix[i - 1][j] + 1
+          )
+        );
+      }
+    }
+  }
+  return matrix[b.length][a.length];
+}
+</script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+    <meta charset="UTF-8" />
+    <title>Predict Disease</title>
+  </head>
+  <body>
+    
+    <nav class="navi">
+      <div class="logo">
+        <img src="{{url_for('static' ,filename='brand 1.png')}}" alt="" />
+      </div>
+      <ul class="options">
+        <li><a href="#2">Home</a></li>
+        <li><a href="#2">About</a></li>
+        <li><a href="#2">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- <div class="services">
+      <figure>
+        <button>
+          <img style="scale: 0.6" src="{{url_for('static' ,filename='chat.png')}}" alt="chatDR" />
+        </button>
+        <button>
+          <img style="scale: 1" src="{{url_for('static' ,filename='sym.png')}}" alt="chatDR" />
+        </button>
+        <button>
+          <img style="scale: 0.9" src="{{url_for('static' ,filename='finddr.png')}}" alt="chatDR" />
+        </button>
+      </figure>
+    </div> -->
+    <form action="/pie" method="post">
+      <input type="submit" value="Analysis of Sugar Patients">
+    </form>
+    <!-- <div class="services-cap">
+      <p class="cap" id="sym">
+        symptom<br />
+        checker
+      </p>
+      <p class="cap active" id="find">
+        find<br />
+        doctor
+      </p>
+      <p class="cap" id="chat">
+        chat a<br />
+        doctor
+      </p>
+    </div> -->
+    <h1 style="text-align: center">Predict Disease</h1>
+    <h1>
+      {% if data != None %}
+
+      {% for x in data %}
+        <li>{{x}}</li>
+      {% endfor %}
+      {% endif %}
+    </h1>
+    <div class="contain" id="userip">
+      <form id="form" action="/predict" method="post"  autocomplete="off" onsubmit="hideform()">
+        <label for="input" class="m-3 d-flex justify-content-center"
+          >enter symptom</label
+        >
+        <div class="grp active">
+          <input
+            placeholder="enter sym 1"
+            class="inp"
+            id="input0"
+            type="text"
+            name="symptom1"
+          />
+        </div>
+        <div class="grp">
+          <input
+            placeholder="enter sym 2"
+            class="inp"
+            id="input1"
+            type="text"
+            name="symptom2"
+          />
+        </div>
+        <div class="grp">
+          <input
+            placeholder="enter sym 3"
+            class="inp"
+            id="input2"
+            type="text"
+            name="symptom3"
+          />
+        </div>
+        <div class="grp">
+          <input
+            placeholder="enter sym 4"
+            class="inp"
+            id="input3"
+            type="text"
+            name="symptom4"
+          />
+        </div>
+        <div class="grp">
+          <input
+            placeholder="enter sym 5"
+            class="inp"
+            id="input4"
+            type="text"
+            name="symptom5"
+          />
+        </div>
+        <div class="grp">
+          <input
+            placeholder="enter sym 6"
+            class="inp"
+            id="input5"
+            type="text"
+            name="symptom6"
+          /><br />
+        </div>
+        <input
+            id="submit" onclick="next()"
+            class="btn btn-primary btn-md disabled"
+            type="submit"
+            value="Predict Now>>>"
+          />
+      
+      <ul class="list"></ul>
+    </form>
+      <div class="contain2 d-flex justify-content-center">
+        <div class="btns m-4 hstack btn-group">
+          <button class="btn btn-dark" onclick="prev()">prev</button>
+          <button class="btn btn-dark" onclick="next()" id="next">next</button>
+        </div>
+      </div>
+    
+    </div>
+
+    <div
+      class="result d-flex justify-content-center flex-column align-items-center m-5">
+      {% if disease %}
+      <p>Predicted disease: {{ disease }}</p>
+      <p>Description: {{description}}</p>
+      <br />
+      <h4>Precution:</h4>
+      <ol>
+        {% for i in precution %}
+        <li>{{i}}</li>
+        {% endfor %}
+      </ol>
+      <h4>
+        Treatment:
+        </h4>
+        <div>
+          <h5>
+            Ayurvadic: 
+          </h5>
+          <p>
+            {{ayur}}
+          </p>
+          <h5>
+            Homeopathic: 
+          </h5>
+          <p>
+            {{homeopathic}}
+          </p>
+          <h5>
+            Conventional: 
+          </h5>
+          <p>
+            {{conventional}}
+          </p>
+        </div>
+      {% endif %}
+    </div>
+    <script>
+      let userip = document.getElementById('userip');
+      function hideform() {
+        userip.classList.add('d-none')
+      }
+
+      let active = document.getElementsByClassName("active");
+      console.log(active);
+      let inputs = document.querySelectorAll(".grp");
+      let ans = document.querySelectorAll(".inp");
+      let submit = document.getElementById("submit")
+     
+      let count = 0;
+      const next = () => {
+        console.log(ans[count].value.length);
+          submit.classList.remove("active");
+          submit.classList.add("disabled");
+
+        if (ans[count].value.length != 0) {
+          if (count <= 4) {
+            inputs[count].classList.remove("active");
+            count++;
+            if (count == 5) {
+              document.getElementById("next").classList.add("disabled");
+            } else {
+              document.getElementById("next").classList.remove("grp");
+            }
+            inputs[count].classList.add("active");
+          }
+        }
+      
+      if(count >=2){
+        submit.classList.add("active");
+          submit.classList.remove("disabled");
+      }
+      };
+      const prev = () => {
+        if (count >= 1) {
+          inputs[count].classList.remove("active");
+          count--;
+          if (count == 4) {
+            document.getElementById("next").classList.remove("disabled");
+          }
+          inputs[count].classList.add("active");
+        }
+      };
+
+      let names = [
+        "itching",
+        "skin rash",
+        "nodal_skin_eruptions",
+        "continuous_sneezing",
+        "shivering",
+        "chills",
+        "joint_pain",
+        "stomach_pain",
+        "acidity",
+        "ulcers_on_tongue",
+        "muscle_wasting",
+        "vomiting",
+        "burning_micturition",
+        "spotting_ urination",
+        "fatigue",
+        "weight_gain",
+        "anxiety",
+        "cold_hands_and_feets",
+        "mood_swings",
+        "weight_loss",
+        "restlessness",
+        "lethargy",
+        "patches_in_throat",
+        "irregular_sugar_level",
+        "cough",
+        "high_fever",
+        "sunken_eyes",
+        "breathlessness",
+        "sweating",
+        "dehydration",
+        "indigestion",
+        "headache",
+        "yellowish_skin",
+        "dark_urine",
+        "nausea",
+        "loss_of_appetite",
+        "pain_behind_the_eyes",
+        "back_pain",
+        "constipation",
+        "abdominal_pain",
+        "diarrhoea",
+        "mild_fever",
+        "yellow_urine",
+        "yellowing_of_eyes",
+        "acute_liver_failure",
+        "fluid_overload",
+        "swelling_of_stomach",
+        "swelled_lymph_nodes",
+        "malaise",
+        "blurred_and_distorted_vision",
+        "phlegm",
+        "throat_irritation",
+        "redness_of_eyes",
+        "sinus_pressure",
+        "runny_nose",
+        "congestion",
+        "chest_pain",
+        "weakness_in_limbs",
+        "fast_heart_rate",
+        "pain_during_bowel_movements",
+        "pain_in_anal_region",
+        "bloody_stool",
+        "irritation_in_anus",
+        "neck_pain",
+        "dizziness",
+        "cramps",
+        "bruising",
+        "obesity",
+        "swollen_legs",
+        "swollen_blood_vessels",
+        "puffy_face_and_eyes",
+        "enlarged_thyroid",
+        "brittle_nails",
+        "swollen_extremeties",
+        "excessive_hunger",
+        "extra_marital_contacts",
+        "drying_and_tingling_lips",
+        "slurred_speech",
+        "knee_pain",
+        "hip_joint_pain",
+        "muscle_weakness",
+        "stiff_neck",
+        "swelling_joints",
+        "movement_stiffness",
+        "spinning_movements",
+        "loss_of_balance",
+        "unsteadiness",
+        "weakness_of_one_body_side",
+        "loss_of_smell",
+        "bladder_discomfort",
+        "foul_smell_of urine",
+        "continuous_feel_of_urine",
+        "passage_of_gases",
+        "internal_itching",
+        "toxic_look_(typhos)",
+        "depression",
+        "irritability",
+        "muscle_pain",
+        "altered_sensorium",
+        "red_spots_over_body",
+        "belly_pain",
+        "abnormal_menstruation",
+        "dischromic _patches",
+        "watering_from_eyes",
+        "increased_appetite",
+        "polyuria",
+        "family_history",
+        "mucoid_sputum",
+        "rusty_sputum",
+        "lack_of_concentration",
+        "visual_disturbances",
+        "receiving_blood_transfusion",
+        "receiving_unsterile_injections",
+        "coma",
+        "stomach_bleeding",
+        "distention_of_abdomen",
+        "history_of_alcohol_consumption",
+        "fluid_overload",
+        "blood_in_sputum",
+        "prominent_veins_on_calf",
+        "palpitations",
+        "painful_walking",
+        "pus_filled_pimples",
+        "blackheads",
+        "scurring",
+        "skin_peeling",
+        "silver_like_dusting",
+        "small_dents_in_nails",
+        "inflammatory_nails",
+        "blister",
+        "red_sore_around_nose",
+        "yellow_crust_ooze",
+      ];
+      let sortedNames = names.sort();
+
+      for (let j = 0; j < 6; j++) {
+        var input = document.querySelectorAll("input");
+        console.log(input);
+
+        input[j].addEventListener("keyup", (e) => {
+          removeElements();
+          for (let i of sortedNames) {
+            if (
+              i.toLowerCase().startsWith(input[j].value.toLowerCase()) &&
+              input[j].value != ""
+            ) {
+              let listItem = document.createElement("li");
+              listItem.classList.add("list-items");
+              listItem.style.cursor = "pointer";
+              listItem.onclick = () => {
+                input[j].value = i;
+                removeElements();
+              }
+
+              let word = "<b>" + i.substr(0, input[j].value.length) + "</b>";
+              word += i.substr(input[j].value.length);
+              listItem.innerHTML = word;
+              document.querySelector(".list").appendChild(listItem);
+            }
+          }
+        });
+        // function displayNames(value) {
+        //   value.target.value = value;
+        //   removeElements();
+        // }
+        function removeElements() {
+          let items = document.querySelectorAll(".list-items");
+          items.forEach((item) => {
+            item.remove();
+          });
+        }
+      }
+    </script>
+    
+  </body>
+</html>

@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for,jsonify,session
+from datetime import datetime
 import pandas as pd
 import pickle
 import csv
+import Login
 app = Flask(__name__)
 model = pickle.load(open("modelH.pkl", "rb"))
 l1=['itching','skin_rash','nodal_skin_eruptions','continuous_sneezing','shivering','chills','joint_pain',
@@ -37,6 +39,35 @@ idol_symptoms = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 description_list={}
 precution_list={}
 treatment_list={}
+bookmarks =[]
+special_doctor = {}
+other_symp={}
+def other_symptom():
+    with open('Data/Training.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        row1 = next(csv_reader)
+        for row in csv_reader:
+            temp =[]
+            for i in range(len(row)-1):
+                if row[i]=='1':
+                    temp.append(row1[i])
+            _special_doctor={row[-1]:temp}
+            other_symp.update(_special_doctor)
+
+other_symptom()
+
+def store_bookmarks(url):
+    bookmarks.append(dict(
+        url=url,
+        user="rgen",
+        date=datetime.utcnow()
+    ))
+def find_special_doctor():
+    with open('MasterData/special_doctor.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        for row in csv_reader:
+            _special_doctor={row[0]:row[1]}
+            special_doctor.update(_special_doctor)
 def desc():
     with open('MasterData/symptom_Description.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
@@ -59,9 +90,49 @@ def treat():
 desc()
 prec()
 treat()
-@app.route("/")
-def index():
+find_special_doctor()
+
+USER ={}
+@app.route('/login', methods=['get', 'POST'])
+def login():
+    print(" ------------------------------------------>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>--------------------------------------------------------")
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+        print(" ------------------------------------------>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+        user = Login.login({"username": username, "password": password})
+        
+        if user != None:
+            session['logedin'] = True
+            session['username'] = username
+            
+            return redirect(url_for('.home',username=username))
+        else:
+            return render_template("login.html", error="Invalid username or password")
+    return render_template("login.html")
+
+@app.route('/find-doctor',methods=['get'])
+def find_doctor():
+    return render_template("find_doctor.html", search="doctor in kolhapur")
+
+@app.route('/signup', methods=['POST','get'])
+def signup():
+    if request.method == "POST":
+        form_data = request.form.to_dict() # parse form data as dictionary
+        data= jsonify(form_data) # return form data as JSON response
+        if Login.signup(form_data):
+            return redirect(url_for('.home',data = form_data))
+        else:
+            return redirect(url_for('.signup', error="error"))
+    return render_template("signup.html")
+
+@app.route("/home", methods=["GET", "POST"])
+def home():
     return render_template("index.html")
+
+@app.route("/exercises", methods=["GET", "POST"])
+def exercises():
+    return render_template("exercise.html")
 @app.route("/predict", methods=["POST"])
 def predict():
     if request.method == "POST":
@@ -82,6 +153,7 @@ def predict():
                 if(k == l1[i]):
                     predict_list[i]=1
         f=pd.DataFrame([predict_list], columns=l1)
+        print(f)
         disease_name =disease[model.predict(f)[0]]
         description = description_list[disease_name]
         precution = precution_list[disease_name]
@@ -89,10 +161,29 @@ def predict():
         ayur = treatment[0]
         homeopathic = treatment[1]
         conventional = treatment[2]
-        # print(treatment_list)
-    return render_template("index.html", disease=disease_name , description=description, precution = precution, ayur=ayur, homeopathic=homeopathic, conventional= conventional)
+        doctor = special_doctor[disease_name]
+        other_sympotom_list = other_symp[disease_name]
+        ct=0
+        for i in other_sympotom_list:
+            for j in symptom_list:
+                if i==j:
+                    ct+=1
+        szor=len(other_sympotom_list)
+        szur=len(symptom_list)
+        percentage = (ct*100)/szor
+        # print(other_symp,"sadfjkl")
+
+        
+    return render_template("index.html",percentage=percentage,other_symptoms = other_sympotom_list, special_doctor = doctor, disease=disease_name , description=description, precution = precution, ayur=ayur, homeopathic=homeopathic, conventional= conventional)
 @app.route('/pie' , methods=['GET', 'POST'])
 def pie():
     return render_template("pichart.html" , work=2)
+@app.route('/chat')
+def chat():
+    return render_template("chat.html")
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.secret_key = 'phionxhealthcareapp'
+    app.config['SESSION_TYPE'] = 'filesystem'
+    app.debug = True
+    app.run()

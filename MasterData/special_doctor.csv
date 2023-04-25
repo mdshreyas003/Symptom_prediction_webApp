@@ -1,0 +1,42 @@
+Disease,specialist
+Fungal infection,dermatologists
+Allergy,allergist
+GERD,gastroenterologist
+Chronic cholestasis,hepatologist
+Drug Reaction,"allergists,immunologists"
+Peptic ulcer disease,"gastroenterologist, gastro surgeon"
+AIDS,"infectious disease specialist, internist"
+Diabetes,endocrinologist
+Gastroenteritis,gastroenterologist
+Bronchial Asthma,"allergist, immunologist"
+Hypertension,cardiologist
+Migraine,neurologist
+Cervical spondylosis,"a physical therapist,orthopedist"
+Paralysis (brain hemorrhage),neurologist
+Jaundice,gastroenterologist
+Malaria,"BHMS,MBBS(GENERAL DOCTOR)"
+Chicken pox,"BHMS,MBBS(GENERAL DOCTOR)"
+Dengue,"BHMS,MBBS(GENERAL DOCTOR)"
+Typhoid,"BHMS,MBBS,infectious disease specialist"
+Hepatitis A,"gasteroenterologist, hepatologist, infectious disease specialist"
+Hepatitis B,"gasteroenterologist,hepatologist"
+Hepatitis C,"liver specialist, hepatologist"
+Hepatitis D,"hepatologist,gasteroentrologist"
+Hepatitis E,"hepatologist,gasteroentrologist"
+Alcoholic hepatitis,"liver specialist, hepatologist"
+Tuberculosis,"general physician, M.D"
+Common Cold,"BHMS,MBBS"
+Pneumonia,pulmonologist
+Hemorrhoids (Piles),"MBBS, general physician"
+Heartattack,cardiologist
+Varicose veins,"phlebologist, vascular surgeon"
+Hypothyroidism,endocrinologist
+Hyperthyroidism,endocrinologist
+Hypoglycemia,endocrinologist
+Osteoarthristis,"rheumatologist,orthopedic"
+Arthritis,"rheumatologist,orthopedic"
+(Vertigo) Paroxysmal Positional Vertigo,ENT 
+Acne,dermatologists
+Urinary Tract Infection,"urologist,gynecologist"
+Psoriasis,dermatologists
+Impetigo,dermatologists

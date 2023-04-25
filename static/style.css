@@ -1,78 +1,97 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
-* {
-    font-family: "poppins";
-  
-}
 body {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
-    background-color: #e9e5e5;
 
 }
-.navi {
-    background-color: #242a45;
+body::-webkit-scrollbar {
+    display: none;
+  }
+.navigation {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    height:70px;
-}
-.options {
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    margin-top: 30px;
-}
-.options >* > a {
-    color:#999;
-    padding: 25px;
-    text-decoration: none;
-}
- li>a:hover {
-    color: white;
- }
-.logo > img {
-     width: 250px;
-     margin: 10px 6px;
-}
-.active {
-    display: block;
+    height: 60px;
+    padding: 5px 25px;
+    border-bottom: 2px solid #999;
 
 }
-figure {
+.logo {
     display: flex;
-    flex-direction: row;
-    gap: 40px;
     justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    
 }
-figure > button {
+.logo > img {
+    width: 40px;
 
-    background-color: rgb(105, 105, 210);
-    width: 80px;
-    height: 80px;
-    border: 2px solid blueviolet;
-    border-radius: 60px;
+}
+.nav_links {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.services {
-    position: relative;
-    top: -50px;
+.links {
+    display: flex;
+    gap: 35px;
+    list-style-type: none;
+    align-items: baseline;
+    margin: 0;
 }
-.services-cap {
+#login {
+    background-color: black;
+    color: white;
+}
+.hero-sec {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    gap: 40px;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 3vw;
 }
-.cap {
-    width:80px;
-    position: relative;
-    top: -50px;
-    text-align: center;
-}
-/* input section from here */
+.heading > button {
+    width: 120px;
+    animation: btn-change 5s alternate infinite;
+     color: white;
+     margin-top: 20px;
+     background-color: rgb(30, 30, 250);
+    box-shadow: 0px 5px 10px black;
 
+}
+/* @keyframes btn-change {
+      0% {
+        background-color: rgb(124, 124, 255);
+      }
+      50% {
+        background-color: rgb(30, 30, 250);
+      }
+      100% {
+        background-color: rgb(227, 124, 255);
+
+      }
+} */
+.heading > button:hover {
+   
+    color: white;
+
+}
+.heading > button:focus {
+    color: white;
+    border: none;
+}
+.img1 {
+    margin: 3vw;
+}
+.section {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+}
+.img1 > img {
+    width: 230px;
+}
+/* form section */
 .grp {
  
     display: none;
@@ -91,7 +110,12 @@ figure > button {
     position: absolute;
     width: 33vw;
     margin-top: 165px;
+    background-color: rgb(1, 177, 247);
 
+}
+#submit:hover {
+    background-color: white;
+    color: rgb(7, 156, 214);
 }
 .active {
     display: block;
@@ -133,7 +157,184 @@ figure > button {
 .btns > button {
     margin-top: 30px;
     width: 16.5vw;
+    background-color:  grey;
+    color: white;
+}
+.btns > button:hover {
+    background-color: white;
+    color: rgb(252, 249, 249);
+    border: 0.5px solid grey;
+}
+.btns > button:focus {
+    background-color: white;
+    color: rgb(250, 249, 249);
+    border: none;
 }
 .contain2 {
-    transform: translateY(-50px);
+    transform: translateY(-20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.result {
+    display: flex;
+    justify-content: center;
+    gap: 65px;
+    flex-direction: row;
+    margin-top: 80px;
+    color: white;
+    transition: all 1.5s;
+
+}
+.result >*  {
+    border-left: 2px solid white;
+    padding: 10px 20px;
+    text-align: center;
+}
+.sugar {
+    display: flex;
+    justify-content: center;
+    
+}
+.sugar > input {
+    background-color:  rgb(1, 177, 247);
+    color: white;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+}
+/* middle section starts here */
+main {
+    font-family: poppins;
+  }
+  .info {
+    margin: 60px 20px 0px 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .info > p {
+    height: 70px;
+    text-align: left;
+  }
+  .health-sub {
+    display: flex;
+    justify-content: center;
+  }
+  .images > div > img {
+    scale: 0.7;
+  }
+  .images > div {
+    width: 65px;
+
+    scale: 1.2;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    background-color: #242a45;
+    border-radius: 90px;
+  }
+  .images {
+    margin-left: 20px;
+    margin-top: 25px;
+  }
+  .images >* {
+    display: flex;
+    justify-content: center;
+  }
+ 
+
+  .whole {
+    background-color: #19376d;
+    height: 340px;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0px;
+  }
+
+  table,
+  th {
+    width: 50%;
+  }
+  table {
+    width: 100%;
+    height: 400px;
+    margin: 35px auto;
+ 
+  }
+  .table {
+    scale: 0.9;
+    display: flex;
+    justify-content: center;
+  }
+  @media screen and (min-width: 720px) {
+    table {
+      width: 700px;
+    }
+    .table {
+      scale: 1;
+    }
+    .health {
+      margin-top: 40px;
+      padding-top: 15px;
+    }
+  }
+  .disease{
+     color:#95BDFF;
+     background-color: #ECF9FF;
+  }
+  .precaution {
+    background-color: #ECF9FF;
+    color:#95BDFF;
+  }
+  .treatmen {
+    background-color: #ECF9FF;
+    color:#95BDFF;
+  }
+  .services-cap {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    z-index: 20;
+    position: absolute;
+    top: 330px;
+  }
+  .services {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    z-index: 20;
+    position: absolute;
+    top: 260px;
+  }
+  .services > * {
+    border-radius: 160px;
+    box-shadow: 0px 0px 6px blue;
+    width: 74px;
+    background: linear-gradient(
+      45deg,
+      rgb(244, 197, 244),
+      rgb(114, 114, 243),
+      rgb(147, 116, 234)
+    );
+  }
+  .services > * > img {
+    scale: 1;
+  }
+  .head-txt {
+    text-align: center;
+    margin: 10px auto;
+    padding: 10px;
+    font-family: "Poppins", sans-serif;
+  }
+  .logo-img {
+    margin-left: 8px;
+    width: 250px;
+    background-color: #242a45;
+  }
+  .text-2xl{
+    color:#4E31AA;
+  }

@@ -1,0 +1,135 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.whole {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.women {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}
+.images {
+  scale: 0.9;
+  display: flex;
+}
+.images > div > img {
+  scale: 0.8;
+  transition: all 0.6s;
+}
+.images > div > img:hover {
+  scale: 0.88;
+}
+.images > div {
+  width: 220px;
+  border: 2px solid skyblue;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+.images > div:hover {
+  box-shadow: 0px 0px 10px skyblue;
+}
+.images > div > div {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 15px;
+  margin-bottom: 10px;
+  
+}
+
+input {
+  scale: 1.5;
+  margin-top: 10px;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+.start > div {
+    margin: 10px;
+}
+.start {
+    width: 500px;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+   padding: 20px;
+   box-shadow: 0px 0px 8px skyblue;
+   border-radius: 20px;
+}
+.gender {
+    padding-top: 30vh;
+    display: flex;
+    justify-content: center;
+}
+
+.none {
+    display: none;
+}
+.final-form {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding-top: 10vh;
+}
+.final-form >* {
+    margin: 10px;
+}
+.final-form > select {
+   text-align: center;
+    border: none;
+    width: 250px;
+    height: 40px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 8px #444;
+}
+.final-form > input::placeholder {
+    padding: 5px;
+}
+.lists {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  align-items: center;
+  margin-top: 3vh;
+  padding: 30px;
+}
+.image  {
+    width: 250px;
+    height: 410px;
+    border: 2px solid skyblue;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+.image > img {
+    width: 130px;
+}
+.exersise-caption {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+.exersise-caption > div {
+  width: 300px;
+}

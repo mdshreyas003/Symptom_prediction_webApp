@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="{{url_for('static',filename='body.js')}}"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='body.css')}}" />
+    <style>
+.navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60px;
+    padding: 5px 25px;
+    border-bottom: 2px solid #999;
+
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    
+}
+.logo > img {
+    width: 40px;
+
+}
+.nav_links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.links {
+    display: flex;
+    gap: 35px;
+    list-style-type: none;
+    align-items: baseline;
+    margin: 0;
+}
+#login {
+    background-color: black;
+    color: white;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="navigation">
+      <div class="logo">
+        <img src="{{url_for('static',filename='cell.png')}}" alt="logo" />
+        <h3 style="margin: 0; font-weight: 400;">Medi<span style="color: blue;font-weight: 700;">Care</span></h3>
+      </div>
+      <div class="nav_links">
+        <ul class="links">
+          <li><a href="/home">Home</a></li>
+          <li><a href="/exercises">Exersises</a></li>
+          <li><a href="/chat">Talk with therapist</a></li>
+          <li><a href="/find-doctor">Find the doctor</a></li>
+          <li><button class="btn btn" id="login">
+              {% if session['username'] != None %}
+              {{session['username']}}
+              {% else %}
+              <a href="/login">Login</a>
+              {% endif %}
+          </button></li>
+        </ul>
+      </div>
+    </div>
+    <button onclick="window.location.reload();">
+      <-
+    </button>
+    <div class="gender">
+     
+      <div class="start">
+        <h2
+        style="
+          margin: 0;
+          text-align: center;
+          color: blueviolet;
+          font-family: Arial, Helvetica, sans-serif;
+        "
+      >
+        Select your gender<strong style="color: red; margin-left: 10px;">⚥</strong>
+      </h2>
+        <div>
+          <input type="radio" id="male" name="fav_language" value="male" />
+          <label style="width: 120px;margin: 10px; box-shadow: 0px 0px 10px ;border-radius:10px; padding-right: 10px;" for="male"><img style="width: 40px; margin: 10px;" src="{{url_for('static',filename='man.png')}}" alt="">Male</label><br />
+          <div></div>
+          <input type="radio" id="female" name="fav_language" value="female" />
+          <label style="width: 120px;margin: 10px; box-shadow: 0px 0px 10px ;border-radius:10px; padding-right: 10px;" for="female"><img style="width: 40px; margin: 10px;" src="{{url_for('static',filename='woman.png')}}" alt="">Female</label><br />
+        </div>
+        <button class="btn btn-info" onclick="forward()">next</button>
+    </div>
+    </div>
+    <div class="selection none">
+      <div class="whole none">
+        <div class="images">
+          <div>
+            <img src="{{url_for('static',filename='male/inverted-men.png')}}" alt="" />
+            <div>
+              <input class="messageCheckbox"
+                type="checkbox"
+                id="Check1"
+                value="Inverted"
+                onclick="selectOnlyThis(this.id)"
+              />
+              Inverted
+            </div>
+          </div>
+          <div>
+            <img src="{{url_for('static',filename='male/oval-men.png')}}" alt="" />
+            <div>
+              <input class="messageCheckbox"
+                type="checkbox"
+                id="Check2"
+                value="Oval"
+                onclick="selectOnlyThis(this.id)"
+              />
+              Oval
+            </div>
+          </div>
+          <div>
+            <img src="{{url_for('static',filename='male/rectangle-men.png')}}" alt="" />
+            <div>
+              <input class="messageCheckbox"
+                type="checkbox"
+                id="Check3"
+                value="Rectangle"
+                onclick="selectOnlyThis(this.id)"
+              />
+              Rectangle
+            </div>
+          </div>
+          <div>
+            <img src="{{url_for('static',filename='male/rhomboid.png')}}" alt="" />
+            <div>
+              <input class="messageCheckbox"
+                type="checkbox"
+                id="Check4"
+                value="Rhomboid"
+                onclick="selectOnlyThis(this.id)"
+              />
+              Rhomboid
+            </div>
+          </div>
+          <div>
+            <img src="{{url_for('static',filename='male/triangle-men.png')}}" alt="" />
+            <div>
+              <input class="messageCheckbox"
+                type="checkbox"
+                id="Check5"
+                value="Triangle"
+                onclick="selectOnlyThis(this.id)"
+              />
+              triangle
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--womens section-->
+      <div class="women none">
+        <div class="images">
+          <div>
+            <img src="{{url_for('static',filename='female/inverted-triangle.png')}}" alt="" />
+            <div>
+              <input class="messageCheckbox"
+                type="checkbox"
+                id="Checkw1"
+                value="Inverted"
+                onclick="selectThis(this.id)"
+              />
+              Inverted
+            </div>
+          </div>
+          <div>
+            <img src="{{url_for('static',filename='female/oval.png')}}" alt="" />
+            <div>
+              <input class="messageCheckbox"
+                type="checkbox"
+                id="Checkw2"
+                value="Oval"
+                onclick="selectThis(this.id)"
+              />
+              Oval
+            </div>
+          </div>
+          <div>
+            <img src="{{url_for('static',filename='female/rectangle.png')}}" alt="" />
+            <div>
+              <input class="messageCheckbox"
+                type="checkbox"
+                id="Checkw3"
+                value="Rectangle"
+                onclick="selectThis(this.id)"
+              />
+              Rectangle
+            </div>
+          </div>
+          <div>
+            <img src="{{url_for('static',filename='female/hourglass.png')}}" alt="" />
+            <div>
+              <input class="messageCheckbox"
+                type="checkbox"
+                id="Checkw4"
+                value="Hourglass"
+                onclick="selectThis(this.id)"
+              />
+              hourglass
+            </div>
+          </div>
+          <div>
+            <img src="{{url_for('static',filename='female/triangle.png')}}" alt="" />
+            <div>
+              <input class="messageCheckbox"
+                type="checkbox"
+                id="Checkw5"
+                value="Triangle"
+                onclick="selectThis(this.id)"
+              />
+              triangle
+            </div>
+          </div>
+        </div>
+      </div>
+     <div class="final-sec none">
+        <div class="final-form">
+          <label for="age">select age :</label>
+          <select name="age" id="age">
+            <option value="a">15-24</option>
+            <option value="b">25-35</option>
+            <option value="c">36-46</option>
+            <option value="d">47-75</option>
+          </select>
+          <label for="height">select height :</label>
+          <select name="height" id="height">
+            <option value="e">4.10-5.5</option>
+            <option value="f">5.5-6.5</option>
+            <option value="g">6.5-7</option>
+          </select>
+          <label for="weight">select weight (kg) :</label>
+          <select name="weight" id="weight">
+            <option value="e">30-40</option>
+            <option value="f">40-50</option>
+            <option value="g">50-60</option>
+            <option value="h">60-70</option>
+            <option value="i">70-100</option>
+          </select>
+            <button id="final-btn" class="btn btn-danger" onclick="show()">show exersises</button>
+          </div>
+     </div>
+      <div class="buttons">
+        <button id="forward" class="next btn btn-info" onclick="forward1()" >next</button>
+      </div>
+      <h3 id="type" style="text-align: center;"></h3>
+      <h4 id="type-cap" style="text-align: center; padding: 10px 20px; color: #888;"></h4> <hr>
+      <div class="lists" style="color:black">
+         <div class="image none" id="type-image" style="display: none;">
+             <img src="{{url_for('static',filename='')}}"id="type-img" alt=""> 
+         </div>
+         <div class="exersise">
+              <figure>
+                <img class="gif" src="" id="gif1" alt="">
+                <img class="gif" src="" id="gif2" alt="">
+                <img class="gif" src="" id="gif3" alt="">
+              </figure>
+              <div class="exersise-caption">
+                   <div class="p1"></div>
+                   <div class="p2"></div>
+                   <div class="p3"></div>
+              </div>
+         </div>
+      </div>
+    </div>
+
+    <script>
+      function selectOnlyThis(id) {
+        for (var i = 1; i <= 5; i++) {
+          document.getElementById("Check" + i).checked = false;
+        }
+        document.getElementById(id).checked = true;
+      }
+      function selectThis(id) {
+        for (var i = 1; i <= 5; i++) {
+          document.getElementById("Checkw" + i).checked = false;
+        }
+        document.getElementById(id).checked = true;
+      }
+    </script>
+  </body>
+</html>

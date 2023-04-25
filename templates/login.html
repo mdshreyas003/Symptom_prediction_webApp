@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,10 +7,51 @@
     <title>Login</title>
 </head>
 <body>
-    <form action="http://localhost:5000/login" method="POST">
+    <p>
+        {% if error !="" %}
+        <p>{{error}}</p>
+        {% endif %}
+    </p>
+    <form action="/" method="POST">
         <p>Name</p>
-        <input type="text" placeholder="Username" name="name">
+        <input type="text" placeholder="Username" name="username">
+        <input type="text" name="password">
         <button type="submiy"> Submit</button>
     </form>
+    <div>
+        <a href="{{url_for('signup')}}">Signup</a>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Login to Healthcare App</title>
+</head>
+<body>
+    <div class="flex min-h-screen ">
+    <div class="m-auto  space-y-6">
+        <h1 class="text-xl ">
+            Login to Healthcare App
+        </h1>
+        <img id="avatar" src="{{url_for('static', filename ='./health-care.png')}}" class="mx-auto" width="60px" height="60px">
+        <form action="/login" method="post">
+        <input name="username" type="text" class="block border-2 border-slate-400 p-2 rounded-md" id="user" placeholder="Username" >
+        <input name="password" type="password" class="mt-2 block border-2 border-slate-400 p-2 rounded-md focus:outline-none" id="pass" placeholder="Password">
+        <input class=" center bg-indigo-500 p-2 mt-2  rounded-md " id="fun" type="submit" value="Submit" />
+    </form>
+        <div class="pt-5 pl-12">
+            <p class="text-md text-blue-800">
+                    <a href="/signup">Signup >></a>
+            </p>
+        </div>
+    </div>
+   
+    </div>
 </body>
 </html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multi-Section Form</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Include Tailwind CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.17/tailwind.min.css">
+  <!-- Include jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <form action="/signup" method="post" id="my-form" class="max-w-lg mx-auto mt-8 p-8 bg-white rounded-lg shadow-md">
+    <!-- Section 1 -->
+    <div class="section1">
+      <h2 class="text-2xl font-semibold mb-6">Section 1</h2>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-semibold mb-2" for="full-name">Full Name</label>
+        <input class="border-2 border-gray-300 p-2 w-full rounded-lg" type="text" id="full-name" name="full-name" placeholder="Enter your full name">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-semibold mb-2" for="email">Email Address</label>
+        <input class="border-2 border-gray-300 p-2 w-full rounded-lg" type="email" id="email" name="email" placeholder="Enter your email address">
+      </div>
+      <button type="button" class="next1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</button>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section2 hidden">
+      <h2 class="text-2xl font-semibold mb-6">Section 2</h2>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-semibold mb-2" for="age">Age</label>
+        <input class="border-2 border-gray-300 p-2 w-full rounded-lg" type="number" id="age" name="age" placeholder="Enter your age">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-semibold mb-2" for="gender">Gender</label>
+        <select class="border-2 border-gray-300 p-2 w-full rounded-lg" id="gender" name="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-semibold mb-2" for="height">Height (in cm)</label>
+        <input class="border-2 border-gray-300 p-2 w-full rounded-lg" type="number" id="height" name="height" placeholder="Enter your height in centimeters">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-semibold mb-2" for="weight">Weight (in kg)</label>
+        <input class="border-2 border-gray-300 p-2 w-full rounded-lg" type="number" id="weight" name="weight" placeholder="Enter your weight in kilograms">
+      </div>
+      <button type="button" class="prev2 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-2">Previous</button>
+      <button type="button" class="next2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</button>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section3 hidden">
+      <h2 class="text-2xl font-semibold mb-6">Section 3</h2>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-semibold mb-2" for="blood-pressure">Blood Pressure (mmHg)</label>
+        <input class="border-2 border-gray-300 p-2 w-full rounded-lg" type="text" id="blood-pressure" name="blood-pressure" placeholder="Enter your blood pressure">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-semibold mb-2" for="cholesterol">Cholesterol Level (mg/dL)</label>
+        <input class="border-2 border-gray-300 p-2 w-full rounded-lg" type="number" id="cholesterol" name="cholesterol" placeholder="Enter your cholesterol level">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-semibold mb-2" for="glucose">Glucose Level (mg/dL)</label>
+        <input class="border-2 border-gray-300 p-2 w-full rounded-lg" type="text" id="glucose" name="glucose" placeholder="Enter your Glucose level">
+      </div>
+      <button type="button" class="prev3 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-2">Previous</button>
+      <button type="button" class="next3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</button>
+    
+    </div>
+      <!-- Section 4 -->
+      <div class="section4 hidden">
+        <h2 class="text-2xl font-semibold mb-6">Section 4</h2>
+        <label class="block text-gray-700 font-semibold mb-2" for="smoking-habit">Do you smoke?</label>
+        <select class="border-2 border-gray-300 p-2 w-full rounded-lg" id="smoking-habit" name="smoking-habit">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-semibold mb-2" for="alcohol-consumption">Do you consume alcohol?</label>
+        <select class="border-2 border-gray-300 p-2 w-full rounded-lg" id="alcohol-consumption" name="alcohol-consumption">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div class="mt-8">
+        <button id="submit-btn" class="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200" type="submit">Submit</button>
+      </div>
+    </div>
+</form>
+  
+    <script>
+      $(document).ready(function() {
+        // Show first section on page load
+        $(".section1").show();
+  
+        // Next button click event
+        $(".next1").click(function() {
+          // Hide current section
+          $(".section1").hide();
+          // Show next section
+          $(".section2").show();
+        });
+  
+        $(".next2").click(function() {
+          $(".section2").hide();
+          $(".section3").show();
+        });
+  
+        $(".next3").click(function() {
+          $(".section3").hide();
+          $(".section4").show();
+        });
+        $(".next4").click(function() {
+          $(".section4").hide();
+          $(".section5").show();
+        });
+        // Previous button click event
+        $(".prev2").click(function() {
+          $(".section2").hide();
+          $(".section1").show();
+        });
+  
+        $(".prev3").click(function() {
+          $(".section3").hide();
+          $(".section2").show();
+        });
+  
+        $(".prev4").click(function() {
+          $(".section4").hide();
+          $(".section3").show();
+        });
+      });
+      const form = document.getElementById("my-form");
+  const submitBtn = document.getElementById("submit-btn");
+
+  submitBtn.addEventListener("click", (event) => {
+    // event.preventDefault();
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    fetch("/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => console.error(error));
+  });
+    </script>
+  </body>
+  </html>
+    
